@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSA Application: Charith R</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony (Warm Neutrals with Google Accents) -->
+    <!-- Application Structure Plan: A single-page, multi-section portfolio with a fixed top navigation. This non-linear structure allows reviewers to jump to sections of interest (like 'My Work' or 'My Vision') immediately, respecting their time and providing a more professional, web-native experience than a linear slide deck. The flow encourages exploration, starting with a strong introduction and leading through skills, motivations, and future plans. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Skills list (Python, C++, etc.). Goal: Compare technical abilities. Viz: Interactive Bar Chart (Chart.js). Interaction: Hover tooltips show skill names. Justification: A chart is more visually engaging and provides a clearer sense of proficiency than a static list. Library: Chart.js (Canvas).
+        - Report Info: Project examples. Goal: Organize and showcase work. Viz: Interactive Cards (HTML/CSS). Interaction: Hover effects to draw attention. Justification: Cards provide a clean, structured way to present distinct projects. Method: Tailwind CSS.
+        - Report Info: GSA Vision (Host, Build, Promote). Goal: Organize plans. Viz: Three-column layout with icons (HTML/CSS). Interaction: Hover effects. Justification: A columnar layout is highly scannable and breaks down the vision into clear, digestible parts. Method: Tailwind CSS.
+        - All other text content is structured into thematic sections with clear headings for readability and easy navigation, turning the slide deck into a cohesive narrative.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4;
+            color: #1f2937;
+        }
+        .g-blue { color: #4285F4; }
+        .g-red { color: #DB4437; }
+        .g-yellow { color: #F4B400; }
+        .g-green { color: #0F9D58; }
+        .nav-link {
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        .nav-link.active {
+            color: #4285F4;
+            border-bottom-color: #4285F4;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="navbar" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="text-lg font-bold text-gray-800">Charith R</div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-blue-500 border-b-2 border-transparent pb-1">Home</a>
+                    <a href="#story" class="nav-link text-gray-600 hover:text-blue-500 border-b-2 border-transparent pb-1">My Pitch</a>
+                    <a href="#work" class="nav-link text-gray-600 hover:text-blue-500 border-b-2 border-transparent pb-1">My Work</a>
+                    <a href="#why-google" class="nav-link text-gray-600 hover:text-blue-500 border-b-2 border-transparent pb-1">Why Google?</a>
+                    <a href="#vision" class="nav-link text-gray-600 hover:text-blue-500 border-b-2 border-transparent pb-1">My Vision</a>
+                    <a href="#why-me" class="nav-link text-gray-600 hover:text-blue-500 border-b-2 border-transparent pb-1">Why Me?</a>
+                    <a href="#connect" class="nav-link text-gray-600 hover:text-blue-500 border-b-2 border-transparent pb-1">Connect</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="min-h-screen flex items-center bg-white pt-16">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight mb-4">
+                        Why I Deserve to Be a <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-green">g</span><span class="g-blue">l</span><span class="g-red">e</span> Student Ambassador
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8">
+                        CHARITH R <span class="mx-2">|</span> Computer Science and Business Systems <span class="mx-2">|</span> JSS Science and Technology University
+                    </p>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-inner max-w-3xl mx-auto">
+                        <p class="text-2xl md:text-3xl font-bold text-gray-700">
+                            “Hi! I’m Charith, a tech enthusiast, student innovator, and passionate community builder.”
+                        </p>
+                        <div class="mt-6 flex justify-center space-x-8 text-lg text-gray-600">
+                            <span class="flex items-center">🚀 Passionate about leveraging technology to solve real-world problems.</span>
+                            <span class="flex items-center">💡 Committed to fostering a collaborative and innovative learning environment.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="story" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                 <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-gray-800">My Creative Pitch</h2>
+                    <p class="text-lg text-gray-600 mb-12">This section contains my creative pitch, which captures my enthusiasm for technology and my drive to share knowledge. It's a small glimpse into my personality and my passion for Google's ecosystem.</p>
+                    <div class="bg-white p-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <p class="text-2xl font-mono text-gray-700 leading-relaxed">
+                            “From hackathons to code at night,<br>
+                            <span class="g-blue">Google tools</span> give my brain its flight.<br>
+                            As an ambassador, I’ll lead the way,<br>
+                            Spreading knowledge <span class="g-green">every day!</span>”
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-gray-800">My Tech Journey</h2>
+                    <p class="text-lg text-gray-600 mb-16">Here, I showcase my practical experience. This includes key projects I've developed and a visualization of my technical skills. This section demonstrates my ability to apply theoretical knowledge to build real-world solutions.</p>
+                </div>
+
+                <h3 class="text-2xl font-bold text-center mb-10 text-gray-700">Featured Projects</h3>
+                <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800">Image Caption Generator</h4>
+                        <p class="text-gray-600">A machine learning project designed to automatically generate descriptive captions for images. This project honed my skills in deep learning frameworks and data processing.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800">GalaxAI Hackathon</h4>
+                        <p class="text-gray-600">Participated in a competitive hackathon, developing a functional prototype under a tight deadline. This experience strengthened my teamwork, problem-solving, and rapid development abilities.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-center mt-20 mb-10 text-gray-700">Technical Skills</h3>
+                <div class="chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-google" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-gray-800">My Alignment with Google's Mission</h2>
+                    <p class="text-lg text-gray-600 mb-16">My admiration for Google goes beyond its products; it's about the core values the company stands for. This section explains how my personal and professional goals are inspired by Google's mission to innovate, include, and educate.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-bold mb-3 g-blue">Innovation</h4>
+                        <p class="text-gray-600">I am driven by a desire to build new things and find better solutions, a spirit I see at the heart of Google's work.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-bold mb-3 g-green">Inclusion</h4>
+                        <p class="text-gray-600">I believe in creating a tech community where everyone feels welcome and has the opportunity to succeed.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-bold mb-3 g-yellow">Education</h4>
+                        <p class="text-gray-600">My passion for learning and teaching aligns with Google's goal of making information universally accessible.</p>
+                    </div>
+                </div>
+                <div class="mt-16 text-center">
+                    <p class="text-lg text-gray-700 mb-4">My experience with tools like these has been foundational to my projects and learning:</p>
+                    <div class="flex justify-center items-center space-x-8">
+                        <span class="font-semibold text-gray-600">Google Cloud</span>
+                        <span class="font-semibold text-gray-600">Firebase</span>
+                        <span class="font-semibold text-gray-600">Gemini</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-gray-800">My Vision as a GSA</h2>
+                    <p class="text-lg text-gray-600 mb-16">As a Google Student Ambassador, I wouldn't just represent Google—I would actively work to build and enrich my campus community. This section outlines my concrete plan to foster a vibrant tech ecosystem at JSS Science and Technology University.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto text-center">
+                    <div class="p-8">
+                        <div class="text-5xl mb-4 g-blue">🤝</div>
+                        <h4 class="text-xl font-bold mb-3 text-gray-800">Host</h4>
+                        <p class="text-gray-600">Organize hands-on coding workshops, AI bootcamps, and Google tech awareness sessions to upskill my peers.</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-5xl mb-4 g-green">🌱</div>
+                        <h4 class="text-xl font-bold mb-3 text-gray-800">Build</h4>
+                        <p class="text-gray-600">Create a vibrant peer-to-peer learning ecosystem where students can collaborate, share knowledge, and innovate together.</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-5xl mb-4 g-yellow">🌍</div>
+                        <h4 class="text-xl font-bold mb-3 text-gray-800">Promote</h4>
+                        <p class="text-gray-600">Champion diversity and inclusion in tech, ensuring our community is a welcoming and supportive space for everyone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-me" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-gray-800">The "Spark" I Bring</h2>
+                    <p class="text-lg text-gray-600 mb-12">This final section summarizes why I am the ideal candidate. It highlights the unique combination of skills, experience, and passion that I would bring to the Google Student Ambassador program.</p>
+                    <div class="flex flex-wrap justify-center gap-4 mb-10">
+                        <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">Leadership</span>
+                        <span class="bg-green-100 text-green-800 text-lg font-medium px-4 py-2 rounded-full">Communication</span>
+                        <span class="bg-yellow-100 text-yellow-800 text-lg font-medium px-4 py-2 rounded-full">Problem-Solving</span>
+                        <span class="bg-red-100 text-red-800 text-lg font-medium px-4 py-2 rounded-full">Community Building</span>
+                    </div>
+                    <div class="bg-white p-10 rounded-lg shadow-lg">
+                        <p class="text-3xl font-bold text-gray-700">“I’m not just a learner—I’m a spark waiting to ignite others!”</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="connect" class="bg-gray-800 text-white py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Let's Go!</h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">Let’s grow, learn, and innovate together. I’m ready to represent Google at JSS Science and Technology University and make a lasting impact.</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">LinkedIn</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">GitHub</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Email</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+            const skillsChart = new Chart(skillsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Python', 'Machine Learning', 'Web Development (HTML/CSS/JS)', 'C++'],
+                    datasets: [{
+                        label: 'Proficiency',
+                        data: [90, 85, 80, 75],
+                        backgroundColor: [
+                            'rgba(66, 133, 244, 0.7)',
+                            'rgba(219, 68, 55, 0.7)',
+                            'rgba(244, 180, 0, 0.7)',
+                            'rgba(15, 157, 88, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(66, 133, 244, 1)',
+                            'rgba(219, 68, 55, 1)',
+                            'rgba(244, 180, 0, 1)',
+                            'rgba(15, 157, 88, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                color: '#4b5563'
+                            },
+                            grid: {
+                                color: '#e5e7eb'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#4b5563',
+                                font: {
+                                    size: 14
+                                }
+                            },
+                             grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            enabled: true
+                        }
+                    }
+                }
+            });
+
+            const sections = document.querySelectorAll('section, footer');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navBar = document.getElementById('navbar');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+
+                let st = window.pageYOffset || document.documentElement.scrollTop;
+                if (st > lastScrollTop && st > 200) {
+                    navBar.style.top = '-100px';
+                } else {
+                    navBar.style.top = '0';
+                }
+                lastScrollTop = st <= 0 ? 0 : st;
+            });
+        });
+    </script>
+
+</body>
+</html>
